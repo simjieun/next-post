@@ -1,5 +1,6 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
+import { notFound } from "next/navigation";
 
 export default async function Detail(props) {
   let db = (await connectDB).db("forum");
@@ -7,6 +8,9 @@ export default async function Detail(props) {
     _id: new ObjectId(props.params.id),
   });
 
+  if (result === null) {
+    return notFound();
+  }
   console.log(props.params.id);
   return (
     <div>

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 // import AuthSession from "./AuthSession";
 import QueryProvider from "./QueryProvider";
+import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +14,8 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+  let res = cookies().get("쿠키이름");
+  console.log(res);
   return (
     <html lang="en">
       <body>

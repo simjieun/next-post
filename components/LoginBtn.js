@@ -11,12 +11,19 @@ export default function LoginBtn() {
 
   // const session = useSession();
   // console.log(session);
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      localStorage.setItem("mode", "light");
+    }
+  }, []);
+
   return (
     <>
       {/* <button onClick={() => signIn("github")}>Github Login</button>
       <button onClick={() => googleSignIn()}>Google Login</button>
       <button onClick={() => signOut()}>Sign out</button> */}
-      <button onClick={()=>console.log("LoginBtn")}>LoginBtn</button>
+      <button onClick={() => console.log("LoginBtn")}>LoginBtn</button>
     </>
   );
 }
